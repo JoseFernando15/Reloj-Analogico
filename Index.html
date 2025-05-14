@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reloj Digital</title>
+    <link rel="stylesheet" href="Style.css">
+    <link rel="icon" href="Assets/favicon.png">
+</head>
+
+<body>
+    <h2 class="header">
+        Reloj Digital
+    </h2>
+    <div class="reloj">
+        <div class="hora">
+            <div class="hr" id="hr"></div>
+        </div>
+        <div class="min">
+            <div class="mn" id="mn"></div>
+        </div>
+        <div class="sec">
+            <div class="sc" id="sc"></div>
+        </div>
+    </div>
+    
+    <footer>
+        <span class="ftr">JoseFer Dev</span>
+    </footer>
+
+    <script type="text/javascript">
+        const deg = 6;
+
+        //tomamos todos los id del rejoj definidos en html
+        const hr = document.querySelector('#hr');
+        const mn = document.querySelector('#mn');
+        const sc = document.querySelector('#sc');
+
+        setInterval(() => {
+            let day = new Date();
+
+            //configuracion de datos a actuales para el reloj
+            let ms = day.getMilliseconds() * deg;
+            let hh = day.getHours() * 30;
+            let mm = day.getMinutes() * deg;
+            let ss = day.getSeconds() * deg + ms /1000;
+
+            //cambio de grados al estilo del tiempo
+            hr.style.transform = `rotateZ(${(hh) + (mm/12)}deg)`;
+            mn.style.transform = `rotateZ(${mm}deg)`;
+            sc.style.transform = `rotateZ(${ss}deg)`;
+
+        }, 1);
+    </script>
+</body>
+</html>

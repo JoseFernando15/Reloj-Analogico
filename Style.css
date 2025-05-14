@@ -1,0 +1,185 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: #22232b;
+    font-family: "sans";
+}
+
+@font-face {
+    font-family: "sans";
+    src: url(font/sans.ttf);
+}
+
+.header{
+    color: white;
+    text-align: center;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    padding: 100px;
+    line-height: 3vh;
+}
+
+.header{
+    text-decoration: none;
+    background: linear-gradient(
+        to right,
+        rgb(32, 32, 182),
+        rgb(207, 12, 12),
+        rgb(214, 214, 13),
+        rgb(15, 175, 15),
+        rgb(226, 162, 173),
+        purple,
+        orange
+    );
+    background-position: 0;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: move 5s linear alternate infinite;
+    font-weight: 700;
+    font-size: 35px;
+    text-transform: uppercase;
+}
+
+@keyframes move {
+    0%{
+        background-position: 0;
+    }
+    60%{
+        background-position: 250px;
+    }
+    100%{
+        background-position: 350px;
+    }
+    
+}
+
+.reloj{
+    width: 350px;
+    height: 350px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: url(Assets/clock.png);
+    background-size: cover;
+}
+
+.reloj:before{
+    content: "";
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    background: #fff;
+    border-radius: 50%;
+    z-index: 10000;
+}
+
+.reloj .hora,
+.reloj .min,
+.reloj .sec{
+    position: absolute;
+}
+
+.reloj .hora,
+.hr{
+    width: 160px;
+    height: 160px;
+}
+
+.reloj .min,
+.mn{
+    width: 190px;
+    height: 190px;
+}
+
+.reloj .sec,
+.sc{
+    width: 230px;
+    height: 230px;
+}
+
+.hr,
+.mn,
+.sc{
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    border-radius: 50%;
+}
+
+.hr:before{
+    content: "";
+    position: absolute;
+    width: 6px;
+    height: 80px;
+    background: red;
+    z-index: 10;
+    border-radius: 6px 6px 0 0;
+}
+
+.mn:before{
+    content: "";
+    position: absolute;
+    width: 4px;
+    height: 90px;
+    background: goldenrod;
+    z-index: 11;
+    border-radius: 6px 6px 0 0;
+}
+
+.sc:before{
+    content: "";
+    position: absolute;
+    width: 2px;
+    height: 150px;
+    background: silver;
+    z-index: 12;
+    border-radius: 6px 6px 0 0;
+}
+
+footer{
+    text-align: center;
+    color: white;
+    font-size: 1rem;
+    position: absolute;
+    bottom: 0;
+    margin-bottom: 0;
+    padding: 5px;
+    line-height: 3vh;
+}
+
+footer a:visited{
+    color: inherit;
+}
+
+/* parte donde se aplica animacion de maquina de escribir al footer */
+.ftr{  
+    display: block;
+    font-family: 'Courier New', Courier, monospace;
+    white-space: nowrap;
+    border-right: 4px solid;
+    width: 12ch;
+    line-height: 1.1;
+
+    animation: typing 2s steps(12), 
+    blink .5s infinite step-end alternate;
+    overflow: hidden;
+}
+
+@keyframes typing{
+    from {width: 0 }
+}
+
+@keyframes blink{
+    50% {border-color: transparent }
+}
+
